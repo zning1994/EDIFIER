@@ -21,9 +21,16 @@ class CSqlite3{
 public:
 	~CSqlite3();
 
+	/* 获取单例模式 */
 	static CSqlite3 *getInstance();
-	// 获取表格数据，返回int类型，astTravel存储结果，iTravelSize存储数量
+
+	/* 获取表格数据
+	/* Param:
+	/*	return: 数据库的访问结果
+	/*  astTravel: 存储结果
+	/*	iTravelSize: 存储数量 */
 	int getTable(char *sqlStr, STravel *astTravel, int& iTravelSize);
+
 	// 获取查询的row
 	int getRow(){}
 	// 获取查询的column

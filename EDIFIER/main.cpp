@@ -3,11 +3,13 @@
 #include "global.h"
 #include "struct.h"
 #include "UTF.h"
+#include "split.h"
 #include "NLPIR\NLPIR.h"
 #include <iostream>
 #include <sstream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <map>
 using namespace std;
 
 //#pragma comment(lib, "NLPIR.lib")
@@ -19,49 +21,66 @@ STravel a_stTravel[TRAVEL_MAX_SIZE];
 
 int main()
 {
+	fstream LOG;
+	LOG.open("./log/main.txt", ios::out);
+
 	/************************数据库操作**************************/
 	char *sqlStr = "select * from travel";
 	int iTravelSize = 0;
 	CSqlite3 *pSqlite = CSqlite3::getInstance();
-	cerr << "get sqlite3 instance successed..." << endl;
+	LOG << "get sqlite3 instance successed..." << endl;
 
 	pSqlite->getTable(sqlStr, a_stTravel, iTravelSize);
 
-	cerr << "get sqlite3 table successed..." << endl;
+	LOG << "get sqlite3 table successed..." << endl;
 
 	/************************分词操作**************************/
-
 	const char *sResult;
 	if (!NLPIR_Init("./", UTF8_CODE))
 	{
 		cout << "ERROR -- NLPIR Init fails" << endl;
 		return 0;
 	}
-	sResult = NLPIR_GetFileKeyWords("./context/context0.txt");
-	fstream KEY_WORDS;
-	KEY_WORDS.open("./result/key_words.txt", ios::out);
-	KEY_WORDS << sResult << endl;
-	KEY_WORDS.close();
+	char inputFile[32]; // 文章txt
+	char outputFile[32]; // 输出key words txt
+	// for test
+	//iTravelSize = 1;
 
-	/*char sSentence[2000];
-    const char * sResult;
-	if(!NLPIR_Init())
+	// 开始对每一篇文章进行操作
+	for (int i = 0; i < iTravelSize; ++i)
 	{
-		printf("Init fails\n");
-		return 0;
-	}
-	printf("Input sentence now('q' to quit)!\n");
-	scanf("%s",sSentence);
-	while(_stricmp(sSentence,"q")!=0)
-	{
-		sResult = NLPIR_GetNewWords(sSentence);
-		printf("%s\nInput string now('q' to quit)!\n", sResult);
-		scanf("%s",sSentence);
-	}
-	NLPIR_Exit();*/
+		sprintf(inputFile, "./context/context%d.txt", i);
+		sprintf(outputFile, "./result/key_words%d.txt", i);
 
-	/*wchar_t wStr[] = L"这里是一段中文";
-	wcout << wStr << endl;*/
+		// 分词
+		sResult = NLPIR_GetFileKeyWords(inputFile);
+
+		char **words = NULL;
+		int wordNum = 0;
+
+		// 开始分割
+		LOG << "Start split..." << endl;
+		CSplit::split(sResult, "#", words, wordNum);
+		LOG << "End split..." << endl << wordNum << endl;
+
+		/* ------------------分割线-------------------- */
+
+		// 分割后，对每个词进行处理
+		fstream KEY_WORDS;
+		KEY_WORDS.open(outputFile, ios::out);
+		KEY_WORDS << wordNum << endl;
+		for (int j = 0; j < wordNum; ++j)
+		{
+			KEY_WORDS << words[j] << endl;
+			delete[] words[j];
+		}
+		KEY_WORDS.close();
+		
+		// 释放words分配的空间
+		delete[] words;
+	}
+
+	LOG.close();
 
 	return 0;
 }

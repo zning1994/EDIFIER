@@ -1,0 +1,165 @@
+Start splitint...
+process 0
+process 1
+process 2
+process circle 10
+process circle 2
+沙面
+process circle 11
+process circle 2
+陈家祠
+process circle 12
+process circle 2
+银记肠粉
+process circle 13
+process circle 2
+粤海关
+process circle 14
+process circle 2
+红专厂
+process circle 15
+process circle 2
+肠粉
+process circle 16
+process circle 2
+沙面岛
+process circle 17
+process circle 2
+牛杂
+process circle 18
+process circle 2
+鱼皮
+process circle 19
+process circle 2
+广州塔
+Start get more space...
+process 1
+process 2
+process 3
+process 4
+process 5
+------广州塔
+End get more space...
+process circle 110
+process circle 2
+西关
+process circle 111
+process circle 2
+砖雕
+process circle 112
+process circle 2
+濑粉
+process circle 113
+process circle 2
+铜铺首
+process circle 114
+process circle 2
+陈姓族人
+process circle 115
+process circle 2
+蚝壳屋
+process circle 116
+process circle 2
+银记肠粉店
+process circle 117
+process circle 2
+广州
+process circle 118
+process circle 2
+艇仔粥
+process circle 119
+process circle 2
+上下九
+process circle 120
+process circle 2
+陶塑
+process circle 121
+process circle 2
+北京路步行街
+process circle 122
+process circle 2
+文化公园总站
+process circle 123
+process circle 2
+建筑
+process circle 124
+process circle 2
+拱北楼
+process circle 125
+process circle 2
+广州火车站
+process circle 126
+process circle 2
+可以
+process circle 127
+process circle 2
+云吞面
+process circle 128
+process circle 2
+南信
+process circle 129
+process circle 2
+冰室
+process circle 130
+process circle 2
+海珠广场
+process circle 131
+process circle 2
+陈姓
+process circle 132
+process circle 2
+花园总站
+process circle 133
+process circle 2
+绿豆沙
+process circle 134
+process circle 2
+广州大厦
+process circle 135
+process circle 2
+坡山脚下
+process circle 136
+process circle 2
+广州酒家
+process circle 137
+process circle 2
+炸鱼皮
+process circle 138
+process circle 2
+煎饺
+process circle 139
+process circle 2
+云吞
+process circle 140
+process circle 2
+双皮奶
+process circle 141
+process circle 2
+创意产业
+process circle 142
+process circle 2
+苏记
+process circle 143
+process circle 2
+鲜虾
+process circle 144
+process circle 2
+屏门
+process circle 145
+process circle 2
+凉茶
+process circle 146
+process circle 2
+鱼蛋粉
+process circle 147
+process circle 2
+午茶
+process circle 148
+process circle 2
+芝麻糊
+process circle 149
+process circle 2
+银记
+process 3
+50
+End splitint...

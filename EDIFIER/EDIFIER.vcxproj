@@ -78,6 +78,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CPPSQLite3.cpp" />
+    <ClCompile Include="split.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="NLPIR\NLPIR.lib" />
@@ -87,6 +88,7 @@
     <ClInclude Include="global.h" />
     <ClInclude Include="NLPIR\NLPIR.h" />
     <ClInclude Include="CPPSQLite3.h" />
+    <ClInclude Include="split.h" />
     <ClInclude Include="SQLite3\sqlite3.h" />
     <ClInclude Include="struct.h" />
     <ClInclude Include="UTF.h" />
