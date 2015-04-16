@@ -24,6 +24,12 @@
     <ClCompile Include="split.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="process.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FP_tree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="SQLite3\sqlite3.lib">
@@ -53,6 +59,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="split.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="process.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FP_tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

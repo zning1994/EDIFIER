@@ -76,8 +76,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FP_tree.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CPPSQLite3.cpp" />
+    <ClCompile Include="process.cpp" />
     <ClCompile Include="split.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -85,9 +87,11 @@
     <Library Include="SQLite3\sqlite3.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FP_tree.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="NLPIR\NLPIR.h" />
     <ClInclude Include="CPPSQLite3.h" />
+    <ClInclude Include="process.h" />
     <ClInclude Include="split.h" />
     <ClInclude Include="SQLite3\sqlite3.h" />
     <ClInclude Include="struct.h" />

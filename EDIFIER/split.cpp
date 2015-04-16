@@ -35,7 +35,7 @@ bool getMoreSpace(char **&sMatrix, const int preRowSize, const int preColumnSize
 	return true;
 }
 
-void CSplit::split(const char *sInput, const char *cSplitSymbol, char **&words, int &wordNum)
+void CSplit::split(const char *sInput, const char cSplitSymbol, char **&words, int &wordNum, int wordMaxNum)
 {
 
 	wordNum = 0;
@@ -43,8 +43,8 @@ void CSplit::split(const char *sInput, const char *cSplitSymbol, char **&words, 
 	//char **tmpWords = NULL;
 	unsigned int wordLen = 32; // 为每个单词分配的长度
 	unsigned int preSymbol = 0; //记录上一个分割符号之后的位置
-	int wordMaxNum = 50; // 分配存储单词的空间
-	const int wordBaseNum = 50; // 分配存储单词的空间不够时再增加空间的数量
+	//int wordMaxNum = 50; // 分配存储单词的空间
+	const int wordBaseNum = wordMaxNum; // 分配存储单词的空间不够时再增加空间的数量
 
 	// 分配一个存储
 	words = new char* [wordMaxNum];
@@ -57,7 +57,7 @@ void CSplit::split(const char *sInput, const char *cSplitSymbol, char **&words, 
 
 	for (unsigned int i = 0; i < strlen(sInput); ++i)
 	{
-		if (sInput[i] == '#')
+		if (sInput[i] == cSplitSymbol)
 		{
 			// 判断该符号是否至少比preSymbol大1
 			if (i <= preSymbol)
@@ -73,7 +73,7 @@ void CSplit::split(const char *sInput, const char *cSplitSymbol, char **&words, 
 			// 将每个单词放入words中
 			strncpy(words[wordNum++], 
 				&sInput[preSymbol], 
-				(i - preSymbol) < wordLen ? (i - preSymbol) : wordLen);
+				((i - preSymbol) < wordLen) ? (i - preSymbol) : (wordLen - 1));
 
 			preSymbol = i + 1;
 		}
